@@ -16,6 +16,8 @@ angular.module('atsApp', [
     'ats.templates',
     require('./modules/main').name,
     require('./modules/welcome').name,
+    require('./modules/candidate').name,
+    require('./modules/client').name,
     require('./common/services').name
     ], App);
 

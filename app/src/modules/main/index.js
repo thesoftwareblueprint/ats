@@ -4,7 +4,7 @@ module.exports = angular.module('atsApp.main', [])
         $stateProvider
             .state('main', {
                 url: '/main',
-                templateUrl: '../app/src/modules/main/main.tpl.html',
+                templateUrl: 'modules/main/main.tpl.html',
                 controller: 'MainController'
             });
         $urlRouterProvider.otherwise('/');

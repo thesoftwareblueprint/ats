@@ -11,7 +11,7 @@ module.exports = angular.module('atsApp.welcome', ['ui.router'])
         $stateProvider
             .state('welcome', {
                 url: '/welcome',
-                templateUrl: '../app/src/modules/welcome/welcome.tpl.html',
+                templateUrl: 'modules/welcome/welcome.tpl.html',
                 controller: 'WelcomeController'
             });
         $urlRouterProvider.otherwise('/');
