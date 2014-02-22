@@ -11,5 +11,6 @@ require('angular-resource');
 require('angular-sanitize');
 require('angular-route');
 require('angular-ui-router');
+require('bootstrap');
 require('ui-bootstrap');
 require('ui-bootstrap-tpls');

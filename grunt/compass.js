@@ -8,7 +8,7 @@ module.exports = {
         generatedImagesDir: '<%= globalConfig.distdir %>/images/generated',
         imagesDir: '<%= globalConfig.srcdir %>/assets/images',
         javascriptsDir: '<%= globalConfig.srcdir %>',
-        fontsDir: '<%= globalConfig.srcdir %>/assets/fonts',
+        fontsDir: '<%= globalConfig.app %>/bower_components/bootstrap-sass/vendor/assets/fonts/bootstrap',
         importPath: '<%= globalConfig.app %>/bower_components',
         relativeAssets: false,
         assetCacheBuster: false,

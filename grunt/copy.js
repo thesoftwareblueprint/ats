@@ -19,6 +19,15 @@ module.exports = {
                 cwd: '.tmp/images',
                 dest: '<%= globalConfig.dist %>/images',
                 src: ['generated/*']
+            },
+            {
+                expand: true,
+                dot: true,
+                cwd: '<%= globalConfig.app %>/bower_components/bootstrap-sass/vendor/assets/fonts',
+                dest: '<%= globalConfig.distdir %>/assets/fonts',
+                src: [
+                    'bootstrap/**/*'
+                    ]
             }]
     },
     styles: {
