@@ -3,8 +3,8 @@
  */
 module.exports = function(req,res) {
     var mongoose = require('mongoose');
-    mongoose.connect('localhost','ats');
-
+    mongoose.createConnection('localhost','ats', 27017);
+    var msg = 'Successful connection';
     var sysUser = mongoose.model('SysUser',mongoose.sysUserSchema);
     sysUser.username = 'walter';
     sysUser.password = 'password';
@@ -12,7 +12,7 @@ module.exports = function(req,res) {
     sysUser.lastname = 'Ferguson';
 
     sysUser.create(function (err) {
-        console.log('an error occured');
-    })
-    res.send('Got something from the server.'+ req.params.action);
+        msg = ('an error occured ' + err);
+    });
+    res.send(msg + req.params.action);
 }
