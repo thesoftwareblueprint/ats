@@ -52,11 +52,12 @@
     "karma": "~0.10.9",
     "karma-ng-html2js-preprocessor": "~0.1.0",
     "grunt-browserify2": "~0.1.8",
-    "karma-browserify": "0.0.6",
+    "karma-browserify": "~0.0.6",
     "grunt-html2js": "~0.2.4",
     "connect-livereload": "~0.3.2",
     "load-grunt-config": "~0.7.1",
-    "mongoose": "~3.8.7"
+    "mongoose": "~3.8.7",
+    "browserify": "~3.32.0"
   },
   "engines": {
     "node": ">=0.8.0"

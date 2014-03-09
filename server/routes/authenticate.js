@@ -11,10 +11,17 @@ module.exports = function(req,res) {
     //TODO validate req.body.username and req.body.password
     //if it is invalid, return 401
 
+    var authresult = {
+        status: false
+    }
+
     if (!(req.body.username === 'walter.ferguson' && req.body.password === 'password')) {
-        res.send(401, 'Wrong username or password');
+
+        //res.send(401, 'Wrong username or password');
+        res.send({authresult: authresult});
         return;
     }
+    authresult.status = true;
 
     var profile = {
         firstname: 'Walter',
@@ -25,5 +32,5 @@ module.exports = function(req,res) {
 
     var token = jwt.sign(profile, secret, {expiresInMinutes: 60*5});
 
-    res.json({token: token});
+    res.json({authresult:authresult,token: token});
 };

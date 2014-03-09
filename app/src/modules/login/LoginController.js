@@ -11,16 +11,19 @@ var LoginController = function($scope, $window, $location, authenticationService
 
     $scope.login = function() {
         //attempt to login the user using the username and password.
-        authenticationService.login($scope.user).then(
-            function(result) {
-                $location.path('/welcome');
-
-            },
-            function(reason) {
-               //Handle Error condition here
-            }
-        );
+        authenticationService.login($scope.user);
     };
+
+    $scope.$on('swbp-event:auth-loginConfirmed', function() {
+        console.log('successful login confirmed');
+        $location.path('/welcome');
+
+    });
+
+    $scope.$on('swbp-event:auth-loginFailed', function() {
+        console.log('login failed');
+
+    });
 
     /**
      * Invoked on startup, like a constructor.

@@ -7,7 +7,7 @@ module.exports = function(config) {
     basePath: '',
 
     // testing framework to use (jasmine/mocha/qunit/...)
-    frameworks: ['jasmine'],
+    frameworks: ['jasmine', 'browserify'],
 
     // list of files / patterns to load in the browser
     files: [
@@ -17,9 +17,13 @@ module.exports = function(config) {
       '../app/bower_components/angular-cookies/angular-cookies.js',
       '../app/bower_components/angular-sanitize/angular-sanitize.js',
       '../app/bower_components/angular-route/angular-route.js',
-      '../.tmp/scripts/app.js',
-      'mock/**/*.js',
-      'spec/**/*.js'
+      '../app/bower_components/angular-ui-router/release/angular-ui-router.js',
+      '../app/bower_components/angular-bootstrap/ui-bootstrap.js',
+      '../.tmp/ats-templates.js',
+      '../app/src/app.js',
+      '../app/src/**/*_test.js'
+      //'mock/**/*.js',
+      //'spec/**/*.js'
     ],
 
     // list of files / patterns to exclude
@@ -35,6 +39,16 @@ module.exports = function(config) {
 
     // enable / disable watching file and executing tests whenever any file changes
     autoWatch: false,
+
+    browserify: {
+        watch: true
+    },
+
+    // Add browserify to preprocessors
+    preprocessors: {
+        //'../app/src/**/*_test.js': ['browserify'],
+        '../app/src/app.js':['browserify']
+    },
 
 
     // Start these browsers, currently available:

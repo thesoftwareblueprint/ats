@@ -1,5 +1,5 @@
 'use strict';
-require('ats-templates');
+//require('ats-templates');
 
 var App = function($urlRouterProvider) {
     $urlRouterProvider.otherwise('/login');

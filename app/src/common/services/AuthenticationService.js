@@ -3,20 +3,23 @@
  */
 'use strict';
 
-var AuthenticationService = function($http, $location, $q) {
+var AuthenticationService = function($http, $location, $q, $rootScope, httpRequestQueue) {
 
     this.login = function(user) {
         //attempt to use the $http service to authenticate the user
-        var deferred = $q.defer();
         $http.post('/authenticate', user).
             success(function(data,status,headers,config) {
-                deferred.resolve(true);
+                if (data.authresult.status) {
+                    $rootScope.$broadcast('swbp-event:auth-loginConfirmed');
+                    httpRequestQueue.retryAllRequest();
+                } else {
+                    $rootScope.$broadcast('swbp-event:auth-loginFailed');
+                }
             }).
             error(function(data,status,headers,config) {
                 return false;
             });
-        return deferred.promise;
     };
 };
-AuthenticationService.$inject = ['$http', '$location', '$q'];
+AuthenticationService.$inject = ['$http', '$location', '$q', '$rootScope', 'httpRequestQueue'];
 module.exports = AuthenticationService;
